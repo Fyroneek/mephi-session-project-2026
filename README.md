@@ -278,7 +278,7 @@ sudo restorecon -Rv /mephi-web
 **Перенастройка nginx на root `/mephi-web` и добавление `index index.html;`:**
 
 ```bash
-# 1. Заменить root на /mephi-web с сохранением отступа
+# 1. Заменить root на /mephi-web
 sudo sed -i 's|root[[:space:]]\+/usr/share/nginx/html;|root         /mephi-web;|' /etc/nginx/nginx.conf
 # 2. Добавить директиву index после строки root
 sudo sed -i '/root[[:space:]]\+\/mephi-web;/a\    index index.html;' /etc/nginx/nginx.conf
@@ -389,7 +389,7 @@ sudo sed -i -E 's/^(user1|user2|user3|curator1|curator2|dmitry|root):[^:]*:/\1:!
 sudo chown dmitry:dmitry ./shadow
 ```
 
-Это соответствует требованиям задания 8.1 (загрузить `/etc/shadow` под именем `shadow`), но снижает риск утечки учётных данных. После сдачи проекта рекомендуется сменить пароли всех пользователей.
+Это соответствует требованиям задания 8.1 (загрузить `/etc/shadow` под именем `shadow`), но снижает риск утечки учётных данных.
 
 ---
 
